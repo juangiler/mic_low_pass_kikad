@@ -1,0 +1,15 @@
+* Realistic Electret Microphone Capsule Model (BCM9767)
+* Pin 1: OUT / Power (Positive Terminal connected to R1 bias)
+* Pin 2: GND (Shield / Case Terminal)
+.subckt BCM9767 1 2
+
+* Internal JFET drain resistance (typical 2.2k impedance)
+R_MIC 1 N_INT 2.2k
+
+* Acoustic generator:
+* 10m = Whisper / Quiet room (20 mVpp open circuit)
+* 25m = Normal conversational voice (50 mVpp open circuit)  <-- RECOMMENDED DEFAULT
+* 50m = Loud voice / Close speaking (100 mVpp open circuit)
+V_ACOUSTIC N_INT 2 DC 0 AC 1 SIN(0 25m {FREQ})
+
+.ends BCM9767

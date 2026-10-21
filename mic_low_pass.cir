@@ -1,0 +1,30 @@
+.title KiCad schematic
+.include "/var/home/juangiler/kikad-projects/mic_low_pass/2N3904.lib"
+.include "/var/home/juangiler/kikad-projects/mic_low_pass/IN4007.lib"
+.include "/var/home/juangiler/kikad-projects/mic_low_pass/LED.lib"
+.include "/var/home/juangiler/kikad-projects/mic_low_pass/Mic.lib"
+.include "/var/home/juangiler/kikad-projects/mic_low_pass/lmx58_lm2904.lib"
+.model __POT1 potentiometer( r=10k position=0.63 )
+.param FREQ=400
+C4 /Vclamp Vfilter 100n
+D2 /Vclamp /Vdet 1N4007
+R4 Net-_Op1-Pad1_ Vfilter 1k
+R3 /Vin Net-_Op1-Pad1_ 1Meg
+C6 GND Vfilter 100n
+Q1 /Vled Vout GND 2N3904
+R7 /Vr8 Vin+ 330
+D3 /Vr8 /Vled RED_LED_1V75
+R6 Vout /Vdet 540
+R5 GND /Vdet 80k
+VJ1 Vin+ GND DC 5 
+APOT1 Vin+ Vref GND __POT1
+C5 GND /Vdet 10u
+D1 GND /Vclamp 1N4007
+C2 GND Vref 100n
+XOp1 Vref /Vin Vin+ GND Net-_Op1-Pad1_ LMX58_LM2904
+XMK1 Net-_MK1-+_ GND BCM9767
+C1 Net-_C1-Pad1_ Net-_MK1-+_ 200n
+R1 Vin+ Net-_MK1-+_ 2.2k
+C3 Vref GND 10u
+R2 Net-_C1-Pad1_ /Vin 1k
+.end

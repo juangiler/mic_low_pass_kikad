@@ -1,0 +1,16 @@
+# KiCad-generated files and directories.
+.history/
+*-backups/
+_autosave-*
+fp-info-cache
+~*.lck
+*.kicad_prl
+
+# Backup copies (current and legacy KiCad formats).
+*.bak
+*.bck
+*.sch-bak
+*.brd-bak
+*.kicad_sch-bak
+*.kicad_pcb-bak
+*~
